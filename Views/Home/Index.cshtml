@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_LayoutInitial";
+}
+
+<div class="container">
+    <div class="spotifytext">Spotify Profile</div>
+    <button onclick="redirectLogin();" type="button" class="spotifybutton mt-4">LOG IN TO SPOTIFY</button>
+</div>
+
+@section Scripts{
+    <script>
+        function redirectLogin() {
+            window.location.href = "https://accounts.spotify.com/authorize?client_id=e4e63d09574542b4a5bbaa391d45d3b8&redirect_uri=https%3A%2F%2Flocalhost%3A7284&scope=user-read-private%20user-read-email&response_type=token&state=123";
+        }
+
+        function getHashParams() {
+            var hash = window.location.hash.substring(1); // Get the hash fragment without the '#'
+            var params = {};
+            var paramArray = hash.split('&');
+
+            for (var i = 0; i < paramArray.length; i++) {
+                var param = paramArray[i].split('=');
+                params[param[0]] = decodeURIComponent(param[1]);
+            }
+
+            return params;
+        }
+
+        // Example usage:
+        var hashParams = getHashParams();
+        console.log(hashParams);
+
+        // You can access individual parameters like this:
+        var parameterValue = hashParams['access_token']; // Replace 'paramName' with the parameter name you want to access
+        if (parameterValue != null) {
+            window.location.href = window.location.origin + "/Home/Profile?" + window.location.hash.substring(1);
+        }
+
+    </script>
+}

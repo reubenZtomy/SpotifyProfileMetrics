@@ -1,0 +1,212 @@
+@font-face {
+    font-family: 'spotifyText';
+    src: url(../resources/fonts/Gotham-Bold.otf);
+}
+
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+    background-color: rgb(24, 24, 24) !important;
+}
+
+.container {
+    text-align: center;
+    font-family: spotifyText;
+}
+
+.spotifytext {
+    font-size: 32px;
+    font-weight: 600 !important;
+    letter-spacing: -2px;
+    color: #FFFFFF; /* White text color */
+}
+
+.spotifybutton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1DB954; /* Spotify's green color */
+    color: #FFFFFF; /* White text color */
+    font-size: 16px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 250px;
+    height: 55px;
+    transition: background-color 0.3s ease;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Styles for screens narrower than 1024px */
+.mobile-nav {
+    display: block;
+}
+
+@media screen and (min-width: 1024px) {
+    .mobile-nav {
+        display: none;
+    }
+}
+
+/* Styles for screens wider than or equal to 1024px */
+.desktop-nav {
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+    .desktop-nav {
+        display: block;
+        width: 200px; /* Adjust the width as needed */
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .content {
+        margin-left: 220px; /* Adjust the margin to make space for the nav bar */
+    }
+}
+
+
+/* Define styles for the sidebar */
+.sidebar {
+    width: 100px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    font-family: "Circular Std", system, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    background-color: rgb(4, 3, 6);
+    color: rgb(255, 255, 255) !important;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px;
+}
+
+    /* Style the sidebar list items */
+    .sidebar ul {
+        display: flex;
+        -webkit-box-pack: justify;
+        -webkit-box-align: center;
+        align-items: center;
+        flex-direction: column; /* Stack items vertically */
+        justify-content: center; /* Center items vertically */
+        min-height: 100vh;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100px;
+        text-align: center;
+    }
+
+    .sidebar li {
+        width: 100%;
+        padding: 15px 0px;
+    }
+
+    .sidebar a {
+        text-decoration: none;
+        color: rgb(155, 155, 155) !important;
+        display: block;
+        font-size: 18px;
+        line-height: 24px;
+        font-size: 11px;
+    }
+
+    /* Add icons using Font Awesome (you need to include Font Awesome library) */
+    .sidebar svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Style the links on hover*/
+    .sidebar li:hover {
+        background-color: #555;
+        border-left: 5px solid rgb(30, 215, 96);
+        transition: all 0.10s cubic-bezier(0.3, 0, 0.4, 1) 0s;
+    }
+
+        .sidebar li:hover svg {
+            fill: white !important;
+        }
+
+        .sidebar li:hover div {
+            color: white !important;
+        }
+
+
+.spotifyLogo {
+    justify-content: start !important;
+
+}
+
+.logoSize {
+    height: 50px !important;
+    width: 50px !important;
+}
+
+.githubLogo {
+    justify-content: end !important;
+}
+
+.githubSize {
+    height: 30px !important;
+    width: 30px !important;
+}
+
+.githubLogo li:hover svg {
+    fill: white !important;
+}
+
+.gridview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+}
+
+
+.User__LogoutButton {
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 30px;
+    margin-top: 30px;
+    padding: 12px 30px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+}
