@@ -3,28 +3,57 @@
     ViewData["Title"] = "Profile";
     Layout = "_Layout";
 }
-<header class="User__Header-bs3d1v-0 ivJOGc">
-    <div class="User__Avatar-bs3d1v-1 gwtTTk">
-        <img src='@Model.images[1].url' style="border-radius: 160px;width: 150px;height: 150px;" />
-    </div>
-    <a href="https://open.spotify.com/user/31fmxun7ibgubtgzqo2z2li3woju" target="_blank" rel="noopener noreferrer" class="User__UserName-bs3d1v-3 yEmJR">
-        <h1 class="User__Name-bs3d1v-4 LAvRQ">@Model.display_name</h1>
-    </a>
-    <div class="gridview">
-        <div class="User__Stat-bs3d1v-6 fJymqn">
-            <div class="User__Number-bs3d1v-7 jdkwuX">@Model.followers.total</div>
-            <p class="User__NumLabel-bs3d1v-8 hECgxm">Followers</p>
-        </div><div class="User__Stat-bs3d1v-6 fJymqn">
-            <div class="User__Number-bs3d1v-7 jdkwuX">1</div>
-            <p class="User__NumLabel-bs3d1v-8 hECgxm">Following</p>
-        </div><div class="User__Stat-bs3d1v-6 fJymqn">
-            <a href="/playlists">
-                <div class="User__Number-bs3d1v-7 jdkwuX">8</div>
-                <p class="User__NumLabel-bs3d1v-8 hECgxm">Playlists</p>
-            </a>
+<div class="contentContainer">
+    <header>
+        <div>
+            <img src='@Model.images[1].url' style="border-radius: 160px;width: 150px;height: 150px;" />
         </div>
-    </div>
-    <a class="User__LogoutButton">Logout</a>
+        <a href='@Model.href' target="_blank" rel="noopener noreferrer">
+            <h1 class="displayName">@Model.display_name</h1>
+        </a>
+        <div class="gridview" style="color:white !important;">
+            <div>
+                <div>@Model.followers.total</div>
+                <p>Followers</p>
+            </div><div>
+                <div>1</div>
+                <p>Following</p>
+            </div><div>
+                <a href="/playlists">
+                    <div>8</div>
+                    <p>Playlists</p>
+                </a>
+            </div>
+        </div>
+        <a class="User__LogoutButton" id="logoutbutton">Logout</a>
+    </header>
+    <section class="trackArtistsContent">
+        <div>
+            <div class="topHeader">
+                <h3>Top Artists of All Time</h3>
+                <a class="User__MoreButton-bs3d1v-13 ePmxvI" href="/artists">See More</a>
+            </div>
+            <div>
+                <ul>
+                    <li class="listItem">
+                        <a class="laDPlW" href="/artist/53XhwfbYqKCa1cC15pYq2q">
+                            <img src="https://i.scdn.co/image/ab6761610000f178920dc1f617550de8388f368e" alt="Artist">
+                        </a>
+                        <a class="User__ArtistName-bs3d1v-17 bDqDZn" href="/artist/53XhwfbYqKCa1cC15pYq2q">
+                            <span>Imagine Dragons</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <div class="topHeader">
+                <h3>Top Artists of All Time</h3>
+                <a class="User__MoreButton-bs3d1v-13 ePmxvI" href="/artists">See More</a>
+            </div>
+            <div>Content </div>
+        </div>
+    </section>
+</div>
 
-</header>
 

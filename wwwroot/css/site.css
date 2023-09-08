@@ -8,19 +8,57 @@ html, body {
 }
 
 html {
-    display: table;
-    margin: auto;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    max-width: 100%;
 }
 
 body {
-    display: table-cell;
-    vertical-align: middle;
-    background-color: rgb(24, 24, 24) !important;
+    min-height: 100%;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Circular Std", system, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    background-color: rgb(24, 24, 24);
+    color: rgb(255, 255, 255);
 }
 
 .container {
     text-align: center;
     font-family: spotifyText;
+}
+
+.contentContainer {
+    width: 100%;
+    margin: 0px auto;
+    max-width: 1400px;
+    min-height: 100vh;
+    padding: 80px;
+}
+
+.listItem {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.topHeader {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.trackArtistsContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    width: 100%;
+    margin-top: 100px;
 }
 
 .spotifytext {
@@ -139,7 +177,6 @@ a {
         text-decoration: none;
         color: rgb(155, 155, 155) !important;
         display: block;
-        font-size: 18px;
         line-height: 24px;
         font-size: 11px;
     }
@@ -209,4 +246,45 @@ a {
     letter-spacing: 1px;
     text-transform: uppercase;
     text-align: center;
+}
+
+.displayName:hover {
+    color: rgb(29, 185, 84);
+}
+.User__LogoutButton:hover {
+    color: rgb(29, 185, 84) !important;
+    border: 1px solid rgb(29, 185, 84) !important;
+}
+
+.gridview a:hover {
+    color: rgb(29, 185, 84);
+}
+
+h3 {
+    font-size: 16px;
+    color: white;
+}
+
+.ePmxvI {
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 50px;
+    padding: 11px 24px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.3, 0, 0.4, 1) 0s;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.laDPlW img {
+    width: 50px;
+    min-width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    border-radius: 100%;
 }

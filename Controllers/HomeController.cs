@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.DotNet.Scaffolding.Shared.CodeModifier.CodeChange;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
@@ -54,7 +55,27 @@ namespace SpotifyClone.Controllers
             RestResponse response = await client.ExecuteAsync(request);
             ProfileDetails ProfileDetails = JsonConvert.DeserializeObject<ProfileDetails>(response.Content);
 
+            ProfileDetails.href = "https://open.spotify.com/user/" + ProfileDetails.id;
+
             return View(ProfileDetails);
+        }
+
+        public async Task<string> GetProfileUrl(string profileUrl)
+        {
+
+            string access_token = HttpContext.Session.GetString("Accesstoken");
+            var options = new RestClientOptions("https://api.spotify.com/v1")
+            {
+                MaxTimeout = -1,
+            };
+            var urlClient = new RestClient(options);
+            var urlRequest = new RestRequest(profileUrl, Method.Get);
+            urlRequest.AddHeader("Accept", "text/plain");
+            urlRequest.AddHeader("Authorization", "Bearer "+ access_token);
+            RestResponse response = await urlClient.ExecuteAsync(urlRequest);
+            ProfileDetails ProfileDetails = JsonConvert.DeserializeObject<ProfileDetails>(response.Content);
+
+            return ("True");
         }
     }
 }
