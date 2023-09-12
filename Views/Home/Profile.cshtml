@@ -1,4 +1,4 @@
-﻿@model ProfileDetails
+﻿@model DetailsTracksArtists
 @{
     ViewData["Title"] = "Profile";
     Layout = "_Layout";
@@ -6,14 +6,14 @@
 <div class="contentContainer">
     <header>
         <div>
-            <img src='@Model.images[1].url' style="border-radius: 160px;width: 150px;height: 150px;" />
+            <img src='@Model.ProfileDetails.images[1].url' style="border-radius: 160px;width: 150px;height: 150px;" />
         </div>
-        <a href='@Model.href' target="_blank" rel="noopener noreferrer">
-            <h1 class="displayName">@Model.display_name</h1>
+        <a href='@Model.ProfileDetails.href' target="_blank" rel="noopener noreferrer">
+            <h1 class="displayName">@Model.ProfileDetails.display_name</h1>
         </a>
         <div class="gridview" style="color:white !important;">
             <div>
-                <div>@Model.followers.total</div>
+                <div>@Model.ProfileDetails.followers.total</div>
                 <p>Followers</p>
             </div><div>
                 <div>1</div>
@@ -33,25 +33,82 @@
                 <h3>Top Artists of All Time</h3>
                 <a class="User__MoreButton-bs3d1v-13 ePmxvI" href="/artists">See More</a>
             </div>
-            <div>
-                <ul>
-                    <li class="listItem">
-                        <a class="laDPlW" href="/artist/53XhwfbYqKCa1cC15pYq2q">
-                            <img src="https://i.scdn.co/image/ab6761610000f178920dc1f617550de8388f368e" alt="Artist">
-                        </a>
-                        <a class="User__ArtistName-bs3d1v-17 bDqDZn" href="/artist/53XhwfbYqKCa1cC15pYq2q">
-                            <span>Imagine Dragons</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <ul>
+                @{
+                    var artistsCount = 0;
+                    foreach (var item in Model.TopArtists.items)
+                    {
+                        if (artistsCount <= 10)
+                        {
+                            <li class="listItem">
+                                <a class="laDPlW" href="/artist/53XhwfbYqKCa1cC15pYq2q">
+                                    <img src="@item.images[0].url" alt="Artist">
+                                </a>
+                                <a class="User__ArtistName-bs3d1v-17 bDqDZn" href="/artist/@item.id">
+                                    <span>@item.name</span>
+                                </a>
+                            </li>
+                            artistsCount++;
+                        }
+                    }
+                }
+            </ul>
         </div>
         <div>
             <div class="topHeader">
-                <h3>Top Artists of All Time</h3>
+                <h3>Top Tracks of All Time</h3>
                 <a class="User__MoreButton-bs3d1v-13 ePmxvI" href="/artists">See More</a>
             </div>
-            <div>Content </div>
+            <ul>
+                @{
+                    var trackCount = 0;
+                    foreach (var item in Model.TopTracks.items)
+                    {
+                        if (trackCount <= 7)
+                        {
+                            <li class="listItem">
+                                <a class="dgCtZc" href="/artist/53XhwfbYqKCa1cC15pYq2q">
+                                    <div>
+                                        <div class="TrackItem__TrackArtwork-sc-1i686r8-2 eICktH">
+                                            <img src="@item.album.images[2].url" alt="Album Artwork">
+                                        </div>
+                                    </div>
+                                    <div class="ifBWOt">
+
+                                        <span class="iUsQKd px-3">
+                                            <span class="bAIAgq">@item.name</span>
+                                            <div class="bGSJpz">
+                                                @{
+                                                    var moreitem = 0;
+                                                    @foreach (var artistItem in item.artists)
+                                                    {
+                                                        
+                                                        if (moreitem == 1)
+                                                        {
+                                                            <span>,&nbsp;@artistItem.name</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span>@artistItem.name</span>
+                                                            moreitem++;
+                                                        }
+                                                    }
+                                                }
+                                                &nbsp;·&nbsp;&nbsp;Ashes (Martin Jensen Remix)
+                                            </div>
+                                        </span>
+                                        <span class="jpzJKi">
+                                            <span class="kuSgKs">2:39</span>
+                                        </span>
+
+                                    </div>
+                                </a>
+                            </li>
+                            trackCount++;
+                        }
+                    }
+                }
+            </ul>
         </div>
     </section>
 </div>

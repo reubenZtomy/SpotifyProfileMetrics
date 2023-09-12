@@ -90,8 +90,9 @@ nav {
 }
 
 ul {
-    list-style-type: none;
-    padding: 0;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
 }
 
 li {
@@ -234,6 +235,7 @@ a {
 }
 
 
+
 .User__LogoutButton {
     background-color: transparent;
     color: rgb(255, 255, 255);
@@ -287,4 +289,71 @@ h3 {
     height: 50px;
     margin-right: 20px;
     border-radius: 100%;
+}
+
+.eICktH {
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    min-width: 50px;
+    margin-right: 20px;
+}
+
+.dgCtZc {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+
+.hpMQCf {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    inset: 0px;
+    color: rgb(255, 255, 255);
+    opacity: 0;
+    transition: all 0.25s cubic-bezier(0.3, 0, 0.4, 1) 0s;
+}
+
+.ifBWOt {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    gap: 10px;
+}
+
+.iUsQKd {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 1px;
+    text-align: start;
+}
+
+.bAIAgq {
+    margin-bottom: 5px;
+    border-bottom: 1px solid transparent;
+}
+
+.bGSJpz {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 1px;
+    color: rgb(155, 155, 155);
+    font-size: 14px;
+    margin-top: 3px;
+}
+
+.kuSgKs {
+    color: rgb(155, 155, 155);
+    font-size: 14px;
 }
